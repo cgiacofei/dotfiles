@@ -1,0 +1,22 @@
+: 1383594666:0;cd Projects
+: 1383594667:0;ls
+: 1383594670:0;cd jobmaterial
+: 1383594672:0;ls
+: 1383594679:0;git status
+: 1383594814:0;git diff
+: 1383594823:0;ls
+: 1383594825:0;cd src
+: 1383594825:0;ls
+: 1383594855:0;git diff resume.tex
+: 1383594863:0;gitk
+: 1383594879:0;git
+: 1383594945:0;git diff HEAD^^ resume.tex
+: 1383594986:0;git config color.diff auto --global
+: 1383594998:0;git config color.status auto --global
+: 1383595004:0;git diff HEAD^^ resume.tex
+: 1383596291:0;ls
+: 1383596299:0;ls *.tex
+: 1383596307:0;cd ~
+: 1383597583:0;ls
+: 1383597918:0;mkdir ~/dotfiles
+: 1383597920:0;ls
