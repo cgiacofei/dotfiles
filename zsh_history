@@ -1,22 +1,37 @@
-: 1383594666:0;cd Projects
-: 1383594667:0;ls
-: 1383594670:0;cd jobmaterial
-: 1383594672:0;ls
-: 1383594679:0;git status
-: 1383594814:0;git diff
-: 1383594823:0;ls
-: 1383594825:0;cd src
-: 1383594825:0;ls
-: 1383594855:0;git diff resume.tex
-: 1383594863:0;gitk
-: 1383594879:0;git
-: 1383594945:0;git diff HEAD^^ resume.tex
-: 1383594986:0;git config color.diff auto --global
-: 1383594998:0;git config color.status auto --global
-: 1383595004:0;git diff HEAD^^ resume.tex
-: 1383596291:0;ls
-: 1383596299:0;ls *.tex
-: 1383596307:0;cd ~
-: 1383597583:0;ls
-: 1383597918:0;mkdir ~/dotfiles
-: 1383597920:0;ls
+: 1383598749:0;cd dotfiles
+: 1383598749:0;ls
+: 1383598753:0;sh .make.sh
+: 1383598779:0;ls ..
+: 1383598808:0;git init
+: 1383598863:0;git status
+: 1383598935:0;git commit -a -m "initial commit"
+: 1383598950:0;git add *
+: 1383598953:0;git commit -a -m "initial commit"
+: 1383599070:0;cd /cygdrive/g/Dropbox
+: 1383599071:0;ls
+: 1383599075:0;cd git
+: 1383599076:0;ls
+: 1383599114:0;cd ~/dotfiles
+: 1383599114:0;ls
+: 1383599178:0;git remote add dropbox /cygdrive/g/Dropbox/git/dotfiles.git
+: 1383599194:0;git push -u dropbox master
+: 1383599234:0;git init --bare /cygdrive/g/Dropbox/git/dotfiles.git
+: 1383599240:0;git push -u dropbox master
+: 1383599508:0;cd ~
+: 1383599513:0;ls
+: 1383599521:0;cd Projects
+: 1383599522:0;ls
+: 1383599527:0;cd jobmaterial
+: 1383599528:0;ls
+: 1383599534:0;cd src
+: 1383599649:0;vim
+: 1383599679:0;apt-cyg install gvim
+: 1383600004:0;gvim
+: 1383600020:0;vim
+: 1383600151:0;apt-cyg find gvim
+: 1383600162:0;apt-cyg
+: 1383600172:0;apt-cyg describe gvim
+: 1383738859:0;cd flexget
+: 1383738862:0;ls
+: 1383739012:0;cd ~
+: 1383739021:0;cp .* dotfiles
