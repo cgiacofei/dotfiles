@@ -46,3 +46,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source $HOME/.aliases
+
+export TODOTXT_DEFAULT_ACTION=pv
+alias t='/home/cgiacofe/todo/todo.sh -d /home/cgiacofe/todo/todo.cfg'
