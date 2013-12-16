@@ -47,7 +47,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 source $HOME/.aliases
 
-export TODOTXT_DEFAULT_ACTION=pv
+export TODOTXT_DEFAULT_ACTION='pv'
 alias t='/home/cgiacofe/todo/todo.sh -d /home/cgiacofe/todo/todo.cfg'
 alias ta='t view project @next'
 alias tw='t view project @waiting && echo "=====  Stalled   =====" && t view project @next @waiting'
