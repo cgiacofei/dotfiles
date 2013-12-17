@@ -1,0 +1,4 @@
+Host server
+    HostName 67.172.205.244
+    IdentityFile ~/.ssh/id_rsa
+    User media 
