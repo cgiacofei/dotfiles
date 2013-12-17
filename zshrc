@@ -54,3 +54,4 @@ alias tw='t view project @waiting && echo "=====  Stalled   =====" && t view pro
 alias tah='t view project @next @home'
 alias tas='t view project @next @shopping'
 alias ts='t view project @shopping'
+alias context='t @'
