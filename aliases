@@ -24,7 +24,8 @@ alias gdiff='git diff --no-index'
 
 # todo.txt
 alias t='~/.todo/todo.sh -d ~/.todo/todo.cfg'
-alias ta='t view project @next'
+alias ta='t a'
+alias tn='t view project @next'
 alias tw='t view project @waiting && echo "=====  Stalled   =====" && t view project @next @waiting'
 alias tah='t view project @next @home'
 alias tas='t view project @next @shopping'
