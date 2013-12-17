@@ -46,5 +46,3 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source $HOME/.aliases
-
-export TODOTXT_DEFAULT_ACTION='pv'
