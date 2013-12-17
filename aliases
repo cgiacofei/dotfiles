@@ -16,6 +16,11 @@ alias "flexget-sort-tv"="~/Flexget/bin/flexget --logfile /home/deluge/.flexget/f
 alias "flexget-sort-premieres"="~/Flexget/bin/flexget --logfile /home/deluge/.flexget/flexget-sorting.log -c /home/deluge/.flexget/sorting.yml --task Sort_Unpacked_TV_Premieres --debug --disable-advancement"
 alias "flexget-sort-movies"="~/Flexget/bin/flexget --logfile /home/deluge/.flexget/flexget-sorting.log -c /home/deluge/.flexget/sorting.yml --task Sort_Unpacked_Movies --debug"
 
+# SortTV config shortcuts (Need to verify these before enabling them for real)
+# alias sort-tv-shows='perl ~/sorttv/sorttv.pl --read-config-file=~/sorttv/sorttv.shows'
+# alias sort-tv-premiers='perl ~/sorttv/sorttv.pl --read-config-file=~/sorttv/sorttv.premiers'
+# alias sort-movies='perl ~/sorttv/sorttv.pl --read-config-file=~/sorttv/sorttv.movie'
+
 # ack-grep
 alias "ack"="ack-grep"
 
