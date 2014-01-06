@@ -1,4 +1,7 @@
-Host server
-    HostName 67.172.205.244
-    IdentityFile ~/.ssh/id_rsa
-    User chris
+Host media
+  HostName 192.168.11.121
+  User media
+
+Host bitbucket.org
+ HostName bitbucket.org
+ IdentityFile ~/.ssh/bitbucket.work

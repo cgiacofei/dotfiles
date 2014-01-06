@@ -1,0 +1,7 @@
+[auth]
+username = cgiacofei
+password = Microe01
+
+[options]
+scm = 'git'
+protocol = 'https'

@@ -1,3 +1,7 @@
 Host media
   HostName 192.168.11.121
   User media
+
+Host bitbucket.org
+ HostName bitbucket.org
+ IdentityFile ~/.ssh/bitbucket
