@@ -3,4 +3,5 @@ Host media
   User media
 
 Host bitbucket.org
- IdentityFile ~/.ssh/bitbucket_rsa
+ HostName bitbucket.org
+ IdentityFile ~/.ssh/bitbucket
