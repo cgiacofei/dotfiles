@@ -1,4 +1,4 @@
 #! /bin/bash
 
 apt-get update
-apt-get install tilda dropbox
+apt-get install tilda dropbox keepass2
