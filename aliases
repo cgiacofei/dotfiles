@@ -26,6 +26,7 @@ alias "ack"="ack-grep"
 
 # git
 alias gdiff='git diff --no-index'
+alias git='/home/cgiacofe/Git/bin/git.exe'
 
 # todo.txt
 alias t='~/.todo/todo.sh -d ~/.todo/todo.cfg'
@@ -38,3 +39,6 @@ alias ts='t view project @shopping'
 alias tp='t view project @inprogress'
 alias tbi='t bi'
 alias context='t @'
+
+# csvfix
+alias readtab='csvfix read_dsv -s "\t"'
