@@ -26,7 +26,6 @@ alias "ack"="ack-grep"
 
 # git
 alias gdiff='git diff --no-index'
-alias git='/home/cgiacofe/Git/bin/git.exe'
 
 # todo.txt
 alias t='~/.todo/todo.sh -d ~/.todo/todo.cfg'
@@ -42,3 +41,6 @@ alias context='t @'
 
 # csvfix
 alias readtab='csvfix read_dsv -s "\t"'
+
+# cygwin
+alias cyg-update='cygstart -- Downloads/setup-x86.exe -K http://cygwinports.org/ports.gpg'
