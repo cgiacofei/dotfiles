@@ -41,6 +41,3 @@ alias context='t @'
 
 # csvfix
 alias readtab='csvfix read_dsv -s "\t"'
-
-# cygwin
-alias cyg-update='cygstart -- Downloads/setup-x86.exe -K http://cygwinports.org/ports.gpg'
