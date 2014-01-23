@@ -1,0 +1,1 @@
+function text-column() { sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t ;}
