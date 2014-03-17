@@ -11,18 +11,12 @@ alias egrep='egrep --color=auto'
 
 # flexget
 # alias "flexget"="~/Flexget/bin/flexget --logfile ~/Flexget/flexget.log"
-alias "flexget-cron"="/usr/bin/time -o /home/deluge/.flexget/flexget.log -a -f 'Run time was %E' /home/deluge/Flexget/bin/flexget -c /home/deluge/.flexget/config.yml --cron"
-alias "flexget-sort-tv"="~/Flexget/bin/flexget --logfile /home/deluge/.flexget/flexget-sorting.log -c /home/deluge/.flexget/sorting.yml --task Sort_Unpacked_TV_Shows --debug --disable-advancement"
-alias "flexget-sort-premieres"="~/Flexget/bin/flexget --logfile /home/deluge/.flexget/flexget-sorting.log -c /home/deluge/.flexget/sorting.yml --task Sort_Unpacked_TV_Premieres --debug --disable-advancement"
-alias "flexget-sort-movies"="~/Flexget/bin/flexget --logfile /home/deluge/.flexget/flexget-sorting.log -c /home/deluge/.flexget/sorting.yml --task Sort_Unpacked_Movies --debug"
+alias "flexget-cron"="/usr/bin/time -o /home/media/.flexget/flexget.log -a -f 'Run time was %E' /usr/bin/flexget execute -c /home/media/.flexget/config.yml --cron"
 
 # SortTV config shortcuts (Need to verify these before enabling them for real)
 # alias sort-tv-shows='perl ~/sorttv/sorttv.pl --read-config-file=~/sorttv/sorttv.shows'
 # alias sort-tv-premiers='perl ~/sorttv/sorttv.pl --read-config-file=~/sorttv/sorttv.premiers'
 # alias sort-movies='perl ~/sorttv/sorttv.pl --read-config-file=~/sorttv/sorttv.movie'
-
-# ack-grep
-alias "ack"="ack-grep"
 
 # git
 alias gdiff='git diff --no-index'
@@ -30,18 +24,19 @@ alias gdiff='git diff --no-index'
 # todo.txt
 alias t='~/.todo/todo.sh -d ~/.todo/todo.cfg'
 alias ta='t a'
-alias tn='t view project @next'
+alias tn='pri A'
 alias tw='t view project @waiting && echo "=====  Stalled   =====" && t view project @next @waiting'
-alias tah='t view project @next @home'
-alias tas='t view project @next @shopping'
-alias ts='t view project @shopping'
-alias tp='t view project @inprogress'
+alias tah='t lsp A | grep "+home"'
+alias tas='t lsp A | grep "@shopping"'
+alias tshop='t view project @shopping'
+alias tprog='t view project @inprogress'
 alias tbi='t bi'
-alias context='t @'
+alias context='t view context'
+alias pri='t lsp'
 
 # csvfix
 alias readtab='csvfix read_dsv -s "\t"'
 
 # other
-wget -O/dev/null speedtest.pixelwolf.ch
+alias speed_test='wget -O/dev/null speedtest.pixelwolf.ch'
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
