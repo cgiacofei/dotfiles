@@ -1,9 +1,13 @@
 [gui]
-	recentrepo = C:/Users/cgiacofe/Desktop/test
+    recentrepo = C:/Users/cgiacofe/Desktop/test
 [user]
-	name = chris
-	email = c.giacofei@gmail.com
+    name = chris
+    email = c.giacofei@gmail.com
 [alias]
-	co = checkout
-	ci = commit -a
-	pretty-log = log --graph --pretty=format:'%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    co = checkout
+    ci = commit -a
+    pretty-log = log --graph --pretty=format:'%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    merge = merge --no-ff
+
+[push]
+    default = matching
