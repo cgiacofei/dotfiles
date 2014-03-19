@@ -1,0 +1,4 @@
+inputs:
+  - rss: { url: 'http://www.torlock.com/movies/rss.xml', silent: yes }     # TorLock (Movies)
+  - rss: { url: 'http://torrentz.eu/feed_verified?q=movies', silent: yes } # Torrentz (Verified Movies)
+  - rss: { url: 'http://pirateproxy.net/feeds/207', silent: yes }          # The Pirate Bay (Highres - Movies)

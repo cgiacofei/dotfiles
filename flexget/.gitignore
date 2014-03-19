@@ -1,0 +1,7 @@
+*.sqlite*
+*-lock
+*.log*
+*.pyc
+received/
+temp/
+userstatic/
