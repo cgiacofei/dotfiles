@@ -49,9 +49,11 @@ source $HOME/.aliases
 source $HOME/.functions
 source $HOME/.cygwin
 
-proxy=http://proxyarray.mazdausa.com:80/
-export http_proxy=$proxy
-export HTTP_PROXY=$proxy
-export https_proxy=$proxy
-export HTTPS_PROXY=$proxy
-export DISPLAY=:0.0
+if [[ `uname` == *CYGWIN* ]] ; then
+    proxy=http://proxyarray.mazdausa.com:80/
+    export http_proxy=$proxy
+    export HTTP_PROXY=$proxy
+    export https_proxy=$proxy
+    export HTTPS_PROXY=$proxy
+    export DISPLAY=:0.0
+fi
