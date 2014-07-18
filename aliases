@@ -40,3 +40,10 @@ alias readtab='csvfix read_dsv -s "\t"'
 # other
 alias speed_test='wget -O/dev/null speedtest.pixelwolf.ch'
 alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+# alias python='/cygdrive/c/Python27/python.exe'
+
+alias plot_trans='find_and_plot /cygdrive/f/Dyno/Trans'
+
+# legder
+export finjrn=$HOME'/Dropbox/Synced/finances/finances.ledger'
+export finfold=$HOME'/Dropbox/Synced/finances/'
