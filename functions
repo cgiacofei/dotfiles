@@ -1,1 +1,8 @@
+# WTF does this do?
 function text-column() { sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t ;}
+
+# Perform git push on repository and echo to log file
+note_push() {pushd ${1}; git push origin --all; echo "Time: $(date) performed git push" >> Debug.log; popd}
+
+# Trim trailing white spaces from each line in input
+function wtrim() {sed 's/[ \t]*$//' $1}
