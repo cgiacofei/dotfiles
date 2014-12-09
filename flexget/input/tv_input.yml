@@ -1,9 +1,0 @@
-# This is a TON of feeds, you probably don't need so many, but why not?
-inputs:
-  - rss: { url: 'http://www.torlock.com/television/rss.xml', silent: yes }  # TorLock (TV)
-  - rss: { url: 'http://torrentz.eu/feed_verified?q=tv', silent: yes }      # Torrentz (Verified only, TV)
-  - rss: { url: 'http://ezrss.it/feed/', silent: yes }                      # EZRSS
-  - rss: { url: 'http://showrss.karmorra.info/feeds/all.rss', silent: yes } # Karmorra (All)
-  - rss: { url: 'http://rss.bt-chat.com/?group=3', silent: yes }            # BT-Chat (EZTV)
-  - rss: { url: 'http://pirateproxy.net/feeds/208', silent: yes }           # The Pirate Bay (Highres - TV shows)
-
