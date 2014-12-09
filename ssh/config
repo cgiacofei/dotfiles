@@ -2,6 +2,14 @@ Host media
   HostName 192.168.11.121
   User media
 
+Host xbmc-master
+  HostName 192.168.11.111
+  User root
+  
+Host xbmc-media
+  HostName 192.168.11.104
+  User root
+
 Host bitbucket.org
  HostName bitbucket.org
  IdentityFile ~/.ssh/bitbucket.home_rsa
