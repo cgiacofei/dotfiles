@@ -56,4 +56,6 @@ if [[ `uname` == *CYGWIN* ]] ; then
     export https_proxy=$proxy
     export HTTPS_PROXY=$proxy
     export DISPLAY=:0.0
+    umask u=rwx,g=rwx,o=rwx
 fi
+
