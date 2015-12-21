@@ -29,7 +29,6 @@ export http_proxy=$proxy
 export HTTP_PROXY=$proxy
 export https_proxy=$proxy
 export HTTPS_PROXY=$proxy
-export DISPLAY=:1.0
 umask u=rwx,g=rwx,o=rwx
 
 export PATH=$PATH:$HOME/bin
