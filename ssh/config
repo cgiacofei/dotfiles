@@ -12,4 +12,9 @@ Host xbmc-media
 
 Host bitbucket.org
  HostName bitbucket.org
- IdentityFile ~/.ssh/bitbucket.home_rsa
+ IdentityFile ~/.ssh/github.rsa
+
+Host github
+  HostName github.com
+  IdentityFile ~/.ssh/github.rsa
+  User git
