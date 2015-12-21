@@ -49,13 +49,8 @@ source $HOME/.aliases
 source $HOME/.functions
 source $HOME/.cygwin
 
-if [[ `uname` == *CYGWIN* ]] ; then
-    proxy=http://proxyarray.mazdausa.com:80/
-    export http_proxy=$proxy
-    export HTTP_PROXY=$proxy
-    export https_proxy=$proxy
-    export HTTPS_PROXY=$proxy
-    export DISPLAY=:0.0
-    umask u=rwx,g=rwx,o=rwx
-fi
+PYTHONDONTWRITEBYTECODE=True
+export PYTHONDONTWRITEBYTECODE
 
+BREWERYDB_API=a45c140826828cc4f7518818b714e17f
+export BREWERYDB_API
