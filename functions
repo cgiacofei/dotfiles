@@ -6,3 +6,9 @@ note_push() {pushd ${1}; git push origin --all; echo "Time: $(date) performed gi
 
 # Trim trailing white spaces from each line in input
 function wtrim() {sed 's/[ \t]*$//' $1}
+
+function cyg-update() {
+    wget "https://cygwin.com/setup-x86.exe"
+    cygstart -- setup-x86.exe -K http://cygwinports.org/ports.gpg
+    rm setup-x86.exe
+}
