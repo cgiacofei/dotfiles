@@ -34,6 +34,9 @@ alias tbi='t bi'
 alias context='t view context'
 alias pri='t lsp'
 
+# later issue tracker
+alias iss='$HOME/bin/later'
+
 # csvfix
 alias readtab='csvfix read_dsv -s "\t"'
 
