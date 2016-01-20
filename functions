@@ -1,14 +1,30 @@
-# WTF does this do?
+# Print CSV file to cli as a Table
 function text-column() { sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t ;}
-
-# Perform git push on repository and echo to log file
-note_push() {pushd ${1}; git push origin --all; echo "Time: $(date) performed git push on ${PWD##*/}" >> $HOME/logs/Debug.log; popd}
 
 # Trim trailing white spaces from each line in input
 function wtrim() {sed 's/[ \t]*$//' $1}
 
-function cyg-update() {
-    wget "https://cygwin.com/setup-x86.exe"
-    cygstart -- setup-x86.exe -K http://cygwinports.org/ports.gpg
-    rm setup-x86.exe
-}
+if [ `uname -o` = "Cygwin" ]; then
+
+    # Perform git push on repository and echo to log file
+    function note_push() {
+        pushd ${1}
+        git push origin --all
+        echo "Time: $(date) performed git push on ${PWD##*/}" >> $HOME/logs/Debug.log
+        popd
+    }
+
+    function cyg-update() {
+        wget "https://cygwin.com/setup-x86.exe"
+        cygstart -- setup-x86.exe -K http://cygwinports.org/ports.gpg
+        rm setup-x86.exe
+    }
+
+    function explore() {
+        /bin/cygstart --explore "${1:-.}"
+    }
+
+else
+    # Other UNIX (Linux, etc.) specific stuff
+fi
+
