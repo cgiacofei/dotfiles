@@ -44,10 +44,13 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+if [ `uname -o` = "Cygwin" ]; then
+    export DISPLAY=:0.0
+fi
+
 # Customize to your needs...
 source $HOME/.aliases
 source $HOME/.functions
-source $HOME/.cygwin
 
 PYTHONDONTWRITEBYTECODE=True
 export PYTHONDONTWRITEBYTECODE
