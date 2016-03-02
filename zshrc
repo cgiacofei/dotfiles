@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="frisk"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -40,20 +40,54 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git github pyenv z)
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH=$PATH:$HOME/bin
+
 if [ `uname -o` = "Cygwin" ]; then
     export DISPLAY=:0.0
+    proxy=proxy.mazdausa.com:80
+
+    export http_proxy=$proxy
+    export HTTP_PROXY=$proxy
+        
+    export https_proxy=$proxy
+    export HTTPS_PROXY=$proxy
 fi
 
 # Customize to your needs...
 source $HOME/.aliases
 source $HOME/.functions
 
+export EDITOR=/usr/bin/vim
+
 PYTHONDONTWRITEBYTECODE=True
 export PYTHONDONTWRITEBYTECODE
 
 BREWERYDB_API=a45c140826828cc4f7518818b714e17f
 export BREWERYDB_API
+
+SSH_ENV="$HOME/.ssh/environment"
+
+function start_agent {
+    echo "Initialising new SSH agent..."
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add;
+}
+
+# Source SSH settings, if applicable
+
+if [ -f "${SSH_ENV}" ]; then
+    . "${SSH_ENV}" > /dev/null
+    #ps ${SSH_AGENT_PID} doesn't work under cywgin
+    ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
