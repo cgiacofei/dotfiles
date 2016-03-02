@@ -94,3 +94,5 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
