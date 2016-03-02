@@ -25,6 +25,6 @@ echo "...done"
 # move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
 for file in $files; do
     mv ~/.$file ~/dotfiles_old/
-    echo "Creating hardlink to $file in home directory."
-    ln $dir/$file ~/.$file
+    echo "Creating symlink to $file in home directory."
+    ln -s $dir/$file ~/.$file
 done

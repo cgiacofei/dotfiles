@@ -2,3 +2,4 @@ ssh/known_hosts*
 *_rsa
 bitbucket
 *~
+ssh/environment

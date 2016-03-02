@@ -9,3 +9,11 @@
 
 [push]
     default = matching
+
+[diff "xls"]
+    binary = true
+    textconv = /usr/bin/xlsx2txt
+
+[diff "xlsx"]
+    binary = true
+    textconv = /usr/bin/xlsx2txt
