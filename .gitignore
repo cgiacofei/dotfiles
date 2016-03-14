@@ -3,3 +3,6 @@ ssh/known_hosts*
 bitbucket
 *~
 ssh/environment
+
+# netrw history
+.netrwhist
