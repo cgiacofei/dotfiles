@@ -9,14 +9,142 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+set nocompatible
+filetype plugin on 
+
+call plug#begin('~/.vim/plugged')
+
+"git interface
+Plug 'tpope/vim-fugitive'
+
+"html
+Plug 'isnowfy/python-vim-instant-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'suan/vim-instant-markdown'
+Plug 'nelstrom/vim-markdown-preview'
+"python sytax checker
+Plug 'nvie/vim-flake8'
+Plug 'vim-scripts/Pydiction'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/syntastic'
+
+"auto-completion stuff
+"Plug 'klen/python-mode'
+Plug 'Valloric/YouCompleteMe'
+Plug 'klen/rope-vim'
+"Plug 'davidhalter/jedi-vim'
+""code folding
+Plug 'tmhedberg/SimpylFold'
+
+"Colors!!!
+Plug 'altercation/vim-colors-solarized'
+Plug 'jnurmine/Zenburn'
+
+" Latex
+
+Plug 'LaTeX-Box-Team/LaTeX-Box'
+
+call plug#end()
+
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  let g:zenburn_high_Contrast=1
+  colorscheme zenburn
+endif
+
+filetype plugin indent on    " enables filetype detection
+let g:SimpylFold_docstring_preview = 1
+
+"autocomplete
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_path_to_python_interpreter="/usr/bin/python"
+
+"custom keys
+let mapleader=" "
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"
+call togglebg#map("<F5>")
+"colorscheme zenburn
+set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
+
+"I don't like swap files
+set noswapfile
+
+"turn on numbering
+set nu
+
+"python with virtualenv support
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUA_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  sys.path.insert(0, project_base_dir)
+  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+"it would be nice to set tag files by the active virtualenv here
+":set tags=~/mytags "tags for ctags and taglist
+"omnicomplete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+"------------Start Python PEP 8 stuff----------------
+" Number of spaces that a pre-existing tab is equal to.
+au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+
+"spaces for indents
+au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+au BufRead,BufNewFile *.py,*.pyw set expandtab
+au BufRead,BufNewFile *.py set softtabstop=4
+
+" Use the below highlight group when displaying bad whitespace is desired.
+highlight BadWhitespace ctermbg=red guibg=red
+
+" Display tabs at the beginning of a line in Python mode as bad.
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+" Make trailing whitespace be flagged as bad.
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Wrap text after a certain number of characters
+au BufRead,BufNewFile *.py,*.pyw, set textwidth=80
+
+" Use UNIX (\n) line endings.
+au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
+
+" Set the default file encoding to UTF-8:
+set encoding=utf-8
+
+" For full syntax highlighting:
+let python_highlight_all=1
+syntax on
+
+" Keep indentation level from previous line:
+autocmd FileType python set autoindent
+
+" make backspaces more powerfull
+set backspace=indent,eol,start
+
+
+"Folding based on indentation:
+autocmd FileType python set foldmethod=indent
+"use space to open folds
+nnoremap <space> za 
+"----------Stop python PEP 8 stuff--------------
+
+"js stuff"
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+
+"-------------------------------
+" The Rest of the File
+"-------------------------------
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -53,6 +181,39 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Toggle Vexplore with Ctrl-E
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+    let expl_win_num = bufwinnr(t:expl_buf_num)
+    if expl_win_num != -1
+      let cur_win_nr = winnr()
+      exec expl_win_num . 'wincmd w'
+      close
+      exec cur_win_nr . 'wincmd w'
+      unlet t:expl_buf_num
+    else
+      unlet t:expl_buf_num
+    endif
+  else
+    exec '1wincmd w'
+    Vexplore
+    let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+
+map <silent> <C-E> :call ToggleVExplorer()<CR>
+
+" Hit enter in the file browser to open the selected
+" file with :vsplit to the right of the browser.
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+
+" Default to tree mode
+let g:netrw_liststyle=3
+
+" Change directory to the current buffer when opening files.
+set autochdir
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -86,13 +247,3 @@ else
   set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
-let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
