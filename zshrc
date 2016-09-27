@@ -91,3 +91,6 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+# added by travis gem
+[ -f /home/chris/.travis/travis.sh ] && source /home/chris/.travis/travis.sh

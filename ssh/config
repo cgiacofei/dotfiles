@@ -18,3 +18,8 @@ Host github
   HostName github.com
   IdentityFile ~/.ssh/github.rsa
   User git
+
+Host whatbox
+  Hostname toffee.whatbox.ca
+  IdentityFile ~/.ssh/whatbox.key
+  User cgiacofei
