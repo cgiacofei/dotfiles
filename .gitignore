@@ -6,3 +6,6 @@ ssh/environment
 
 # netrw history
 .netrwhist
+ssh/*pub
+ssh/*rsa
+
