@@ -1,5 +1,5 @@
 Host media
-  HostName 192.168.11.121
+  HostName 192.168.1.175
   User media
 
 Host xbmc-master
