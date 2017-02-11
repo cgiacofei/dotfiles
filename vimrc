@@ -59,7 +59,7 @@ let g:SimpylFold_docstring_preview = 1
 
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_path_to_python_interpreter="/usr/bin/python"
+let g:ycm_path_to_python_interpreter="/usr/bin/python3"
 
 "custom keys
 let mapleader=" "
@@ -128,6 +128,7 @@ autocmd FileType python set autoindent
 " make backspaces more powerfull
 set backspace=indent,eol,start
 
+let g:pydiction_location = '/home/user/.vim/plugged/Pydiction/complete-dict'
 
 "Folding based on indentation:
 autocmd FileType python set foldmethod=indent
