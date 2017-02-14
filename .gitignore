@@ -8,4 +8,9 @@ ssh/environment
 .netrwhist
 ssh/*pub
 ssh/*rsa
-
+config/flexget
+config/calibre
+config/rtorrent
+config/rutorrent
+config/syncthing
+config/transmission-daemon
