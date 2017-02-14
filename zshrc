@@ -94,3 +94,7 @@ fi
 
 # added by travis gem
 [ -f /home/chris/.travis/travis.sh ] && source /home/chris/.travis/travis.sh
+
+if [[ `uname -n` == 'chips.whatbox.ca' ]]; then
+    source ~/env/bin/activate
+fi
