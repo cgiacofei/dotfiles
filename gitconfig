@@ -17,3 +17,5 @@
 [diff "xlsx"]
     binary = true
     textconv = /usr/bin/xlsx2txt
+[commit]
+	verbose = true
