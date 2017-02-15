@@ -46,6 +46,8 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 call plug#end()
 
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 if has('gui_running')
   set background=dark
   colorscheme solarized
