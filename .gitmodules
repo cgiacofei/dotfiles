@@ -4,6 +4,7 @@
 [submodule "vim/bundle/YouCompleteMe"]
 	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "todo-cli"]
-	path = todo-cli
-	url = git@github.com:cgiacofei/todo.txt-cli
+[submodule "todo"]
+	path = todo
+	url = git@github.com:cgiacofei/todo.txt-cli.git
+	branch = master
