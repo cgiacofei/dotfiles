@@ -23,9 +23,9 @@ echo "...done"
 
 for file in * ; do
     if [[ $file != 'make_dotfiles' ]] && [[ ! -L ~/.$file  ]] ; then
-        mv ~/.$file $olddir
+        #mv ~/.$file $olddir
         echo "Creating symlink to $file in home directory."
-	echo ln -s $dir/$file ~/.$file
+	ln -s $dir/$file ~/.$file
     fi
 done
 
