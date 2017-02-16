@@ -56,6 +56,7 @@ source $HOME/.profile
 export PATH=$PATH:$HOME/bin
 export EDITOR=/usr/bin/vim
 export PYTHONDONTWRITEBYTECODE=True
+export TZ=/usr/share/zoneinfo/America/New_York
 
 # ------------------------------------------------------------------
 # Work proxy stuff for Cygwin
