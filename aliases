@@ -36,8 +36,8 @@ alias context='t view context'
 alias pri='t lsp'
 alias tmkol='t ol mkol'
 
-# later issue tracker
-alias iss='$HOME/bin/later'
+# ghi GitHub issue tracker cli
+alias iss='$HOME/bin/ghi --no-pager'
 
 # csvfix
 alias readtab='csvfix read_dsv -s "\t"'
