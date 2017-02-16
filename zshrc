@@ -61,6 +61,9 @@ fi
 source $HOME/.aliases
 source $HOME/.functions
 
+# This file is not tracked in the repo and is used to store sensitive info
+source $HOME/.profile
+
 export EDITOR=/usr/bin/vim
 
 PYTHONDONTWRITEBYTECODE=True
@@ -98,3 +101,16 @@ fi
 if [[ `uname -n` == 'chips.whatbox.ca' ]]; then
     source ~/env/bin/activate
 fi
+
+# ------------------------------------------------------------------
+# Set git config settings
+# ------------------------------------------------------------------
+git config --global ghi.token $GH_TOKEN
+git config --global ghi.editor vim
+git config --global user.name $GH_NAME
+git config --global user.email $GH_EMAIL
+git config --global alias.co checkout
+git config --global alias.ci commit -a
+git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+git config --global commit.verbose true
+
