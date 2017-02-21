@@ -37,7 +37,7 @@ alias pri='t lsp'
 alias tmkol='t ol mkol'
 
 # ghi GitHub issue tracker cli
-alias ghi='$HOME/bin/ghi --no-pager'
+alias gi='$HOME/bin/ghi --no-pager'
 
 # csvfix
 alias readtab='csvfix read_dsv -s "\t"'
