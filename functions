@@ -30,6 +30,10 @@ else
     # Other UNIX (Linux, etc.) specific stuff
 fi
 
+function ghm() {
+    ghi --no-pager "$@" -- GiacofeiHome/maintenance
+}
+
 function py_env() {
     ENV=$(find . -maxdepth 3 -wholename "./*bin/activate")
     if [[ -f $ENV ]]; then
