@@ -96,3 +96,5 @@ git config --global alias.ci 'commit -a'
 git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 git config --global commit.verbose true
 
+sh $HOME/.scripts/tools/install.sh
+
