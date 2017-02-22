@@ -23,7 +23,7 @@ alias gdiff='git diff --no-index'
 alias gs='git status'
 
 # todo.txt
-alias t='~/.todo/todo.sh -d ~/.todo/todo.cfg'
+alias t='~/.scripts/todo/todo.sh -d ~/.scripts/todo/todo.cfg'
 alias ta='t a'
 alias tn='pri A'
 alias tw='t view project @waiting && echo "=====  Stalled   =====" && t view project @next @waiting'

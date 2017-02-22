@@ -59,17 +59,6 @@ export PYTHONDONTWRITEBYTECODE=True
 export TZ=/usr/share/zoneinfo/America/New_York
 
 # ------------------------------------------------------------------
-# Work proxy stuff for Cygwin
-# ------------------------------------------------------------------
-if [ `uname -o` = "Cygwin" ]; then
-    export DISPLAY=:0.0
-    export http_proxy=$WORK_PROXY
-    export HTTP_PROXY=$WORK_PROXY
-    export https_proxy=$WORK_PROXY
-    export HTTPS_PROXY=$WORK_PROXY
-fi
-
-# ------------------------------------------------------------------
 # Setup SSH agent
 # ------------------------------------------------------------------
 SSH_ENV="$HOME/.ssh/environment"
