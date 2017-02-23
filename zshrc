@@ -96,5 +96,18 @@ git config --global alias.ci 'commit -a'
 git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 git config --global commit.verbose true
 
-sh $HOME/.scripts/tools/install.sh
+alias script_update='sh $HOME/.scripts/tools/install.sh'
+if [[ -f $HOME/.script_update ]] ; then
+    MOD=$(date -r $HOME/.script_update +%s)
+    NOW=$(date +%s)
+    DAYS=days=$(expr \( $NOW - $MOD \) / 86400)
+
+    if [[ $DAYS -gt 7 ]] ; then
+        sh $HOME/.scripts/tools/install.sh
+        touch $HOME/.script_update
+    fi
+else
+    sh $HOME/.scripts/tools/install.sh
+    touch $HOME/.script_update
+fi
 
