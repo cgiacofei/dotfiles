@@ -30,6 +30,7 @@ Plug 'scrooloose/syntastic'
 
 "tag stuff
 Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
 
 "auto-completion stuff
 "Plug 'klen/python-mode'
@@ -49,6 +50,8 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 call plug#end()
 set tags=./tags,tags;
+let g:autotagTagsFile="tags"
+
 nmap <F8> :TagbarToggle<CR> 
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
