@@ -28,6 +28,10 @@ Plug 'vim-scripts/Pydiction'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'scrooloose/syntastic'
 
+"tag stuff
+Plug 'scrooloose/nerdtree'
+Plug 'majutsushi/tagbar'
+
 "auto-completion stuff
 "Plug 'klen/python-mode'
 Plug 'Valloric/YouCompleteMe'
@@ -45,6 +49,9 @@ Plug 'jnurmine/Zenburn'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 call plug#end()
+set tags=./tags,tags;
+map <C-n> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR> 
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
@@ -62,6 +69,11 @@ let g:SimpylFold_docstring_preview = 1
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_path_to_python_interpreter="/usr/bin/python"
+
+" Ledger Stuff
+let g:ledger_bin="/home/cgiacofei/ledger/ledger"
+let g:ledger_maxwidth = 80
+
 
 "custom keys
 let mapleader=" "
