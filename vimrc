@@ -29,7 +29,6 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'scrooloose/syntastic'
 
 "tag stuff
-Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 
 "auto-completion stuff
@@ -50,7 +49,6 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 call plug#end()
 set tags=./tags,tags;
-map <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR> 
 
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
