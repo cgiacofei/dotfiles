@@ -50,7 +50,3 @@ alias pycheck='find -name "*.py" -not -path "*venv*" -exec flake8 {} \;'
 
 alias mkdir='mkdir -p'
 
-# legder
-alias ledger='ledger "-f C:\Users\cgiacofe\Dropbox\Synced\finances\ledgerindex.ledger"'
-export finjrn=$HOME'/Dropbox/Synced/finances/finances.ledger'
-export finfold=$HOME'/Dropbox/Synced/finances/'

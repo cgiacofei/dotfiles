@@ -19,3 +19,7 @@
     textconv = /usr/bin/xlsx2txt
 [commit]
 	verbose = true
+
+[gui]
+	fontui = -family \"DejaVu Sans\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"DejaVu Sans Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0

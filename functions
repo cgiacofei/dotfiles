@@ -28,3 +28,7 @@ else
     # Other UNIX (Linux, etc.) specific stuff
 fi
 
+function split_flac() {
+    INPUT="$1"
+    cuebreakpoints $INPUT.cue | shnsplit -O never -o flac $INPUT
+}
