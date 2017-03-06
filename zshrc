@@ -35,7 +35,7 @@ ZSH_THEME="frisk"
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -44,31 +44,23 @@ plugins=(git github pyenv z)
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:$HOME/bin
-
-if [ `uname -o` = "Cygwin" ]; then
-    export DISPLAY=:0.0
-    proxy=proxy.mazdausa.com:80
-
-    export http_proxy=$proxy
-    export HTTP_PROXY=$proxy
-        
-    export https_proxy=$proxy
-    export HTTPS_PROXY=$proxy
-fi
-
-# Customize to your needs...
+# ------------------------------------------------------------------
+# Non oh-my-zsh stuff starts here
+# ------------------------------------------------------------------
 source $HOME/.aliases
 source $HOME/.functions
 
+# This file is not tracked in the repo and is used to store sensitive info
+source $HOME/.profile
+
+export PATH=$PATH:$HOME/bin
 export EDITOR=/usr/bin/vim
+export PYTHONDONTWRITEBYTECODE=True
+export TZ=/usr/share/zoneinfo/America/New_York
 
-PYTHONDONTWRITEBYTECODE=True
-export PYTHONDONTWRITEBYTECODE
-
-BREWERYDB_API=a45c140826828cc4f7518818b714e17f
-export BREWERYDB_API
-
+# ------------------------------------------------------------------
+# Setup SSH agent
+# ------------------------------------------------------------------
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
@@ -92,9 +84,30 @@ else
     start_agent;
 fi
 
-# added by travis gem
-[ -f /home/chris/.travis/travis.sh ] && source /home/chris/.travis/travis.sh
+# ------------------------------------------------------------------
+# Set git config settings
+# ------------------------------------------------------------------
+git config --global ghi.token $GH_TOKEN
+git config --global ghi.editor vim
+git config --global user.name $GH_NAME
+git config --global user.email $GH_EMAIL
+git config --global alias.co checkout
+git config --global alias.ci 'commit -a'
+git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+git config --global commit.verbose true
 
-if [[ `uname -n` == 'chips.whatbox.ca' ]]; then
-    source ~/env/bin/activate
+alias script_update='sh $HOME/.scripts/tools/install.sh'
+if [[ -f $HOME/.script_update ]] ; then
+    MOD=$(date -r $HOME/.script_update +%s)
+    NOW=$(date +%s)
+    DAYS=days=$(expr \( $NOW - $MOD \) / 86400)
+
+    if [[ $DAYS -gt 7 ]] ; then
+        sh $HOME/.scripts/tools/install.sh
+        touch $HOME/.script_update
+    fi
+else
+    sh $HOME/.scripts/tools/install.sh
+    touch $HOME/.script_update
 fi
+

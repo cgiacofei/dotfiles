@@ -20,9 +20,10 @@ alias "flexget-cron"="/usr/bin/time -o /home/media/.flexget/flexget.log -a -f 'R
 
 # git
 alias gdiff='git diff --no-index'
+alias gs='git status'
 
 # todo.txt
-alias t='~/.todo/todo.sh -d ~/.todo/todo.cfg'
+alias t='~/.scripts/todo/todo.sh -d ~/.scripts/todo/todo.cfg'
 alias ta='t a'
 alias tn='pri A'
 alias tw='t view project @waiting && echo "=====  Stalled   =====" && t view project @next @waiting'
@@ -33,9 +34,10 @@ alias tprog='t view project @inprogress'
 alias tbi='t bi'
 alias context='t view context'
 alias pri='t lsp'
+alias tmkol='t ol mkol'
 
-# later issue tracker
-alias iss='$HOME/bin/later'
+# ghi GitHub issue tracker cli
+alias gi='$HOME/bin/ghi --no-pager'
 
 # csvfix
 alias readtab='csvfix read_dsv -s "\t"'

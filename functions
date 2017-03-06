@@ -1,3 +1,5 @@
+#! /bin/bash
+
 # Print CSV file to cli as a Table
 function text-column() { sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t ;}
 
@@ -31,4 +33,17 @@ fi
 function split_flac() {
     INPUT="$1"
     cuebreakpoints $INPUT.cue | shnsplit -O never -o flac $INPUT
+
+function ghm() {
+    ghi --no-pager "$@" -- GiacofeiHome/maintenance
+}
+
+function py_env() {
+    ENV=$(find . -maxdepth 3 -wholename "./*bin/activate")
+    if [[ -f $ENV ]]; then
+        source $ENV
+    else
+        virtualenv -p /usr/bin/python3.5 env
+        source env/bin/activate
+    fi
 }

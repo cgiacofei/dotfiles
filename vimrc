@@ -46,6 +46,8 @@ Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 call plug#end()
 
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 if has('gui_running')
   set background=dark
   colorscheme solarized
@@ -70,7 +72,9 @@ call togglebg#map("<F5>")
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
 
 "I don't like swap files
-set noswapfile
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 
 "turn on numbering
 set nu
