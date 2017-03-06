@@ -15,3 +15,9 @@ config/rutorrent
 config/syncthing
 config/transmission-daemon
 ssh/authorized_keys
+
+# Ignore tag files
+tags
+tags.lock
+tags.temp
+
