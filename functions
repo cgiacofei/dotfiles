@@ -4,7 +4,7 @@
 function text-column() { sed 's/,,/, ,/g;s/,,/, ,/g' $1 | column -s, -t ;}
 
 # Trim trailing white spaces from each line in input
-function wtrim() {sed 's/[ \t]*$//' $1}
+function wtrim() { sed 's/[ \t]*$//' $1 } 
 
 if [ `uname -o` = "Cygwin" ]; then
 
@@ -26,13 +26,12 @@ if [ `uname -o` = "Cygwin" ]; then
         /bin/cygstart --explore "${1:-.}"
     }
 
-else
-    # Other UNIX (Linux, etc.) specific stuff
 fi
 
 function split_flac() {
     INPUT="$1"
     cuebreakpoints $INPUT.cue | shnsplit -O never -o flac $INPUT
+}
 
 function ghm() {
     ghi --no-pager "$@" -- GiacofeiHome/maintenance
@@ -47,3 +46,4 @@ function py_env() {
         source env/bin/activate
     fi
 }
+
