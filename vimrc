@@ -52,7 +52,18 @@ Plug  'ledger/vim-ledger'
 
 call plug#end()
 
-" Tag navigation
+"Navigate panes with Ctrl-J/K/L/H
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"Disable the arrow keys
+nnoremap <Up> <NOP>
+nnoremap <Down> <NOP>
+nnoremap <Left> <NOP>
+nnoremap <Right> <NOP>
+
 set tags=./tags,tags;
 let g:autotagTagsFile="tags"
 nmap <F8> :TagbarToggle<CR> 
