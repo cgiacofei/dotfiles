@@ -21,3 +21,5 @@ tags
 tags.lock
 tags.temp
 
+# Ignore vim plugins
+vim/plugged/*
