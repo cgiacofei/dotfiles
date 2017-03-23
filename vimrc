@@ -43,10 +43,9 @@ Plug 'altercation/vim-colors-solarized'
 
 " Latex
 Plug 'LaTeX-Box-Team/LaTeX-Box'
-
 Plug 'scrooloose/nerdtree'
-
 Plug  'ledger/vim-ledger'
+Plug 'jmcantrell/vim-virtualenv'
 
 call plug#end()
 
@@ -100,18 +99,6 @@ set number
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
-
-"python with virtualenv support
-py << EOF
-import os.path
-import sys
-import vim
-if 'VIRTUA_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  sys.path.insert(0, project_base_dir)
-  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
