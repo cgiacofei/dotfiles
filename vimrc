@@ -33,10 +33,8 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
 "auto-completion stuff
-"Plug 'klen/python-mode'
 Plug 'Valloric/YouCompleteMe'
-Plug 'klen/rope-vim'
-"Plug 'davidhalter/jedi-vim'
+
 ""code folding
 Plug 'tmhedberg/SimpylFold'
 
@@ -71,7 +69,7 @@ nmap <F8> :TagbarToggle<CR>
 "Color Scheme and Visability
 syntax enable
 set background=dark
-colorscheme desert
+colorscheme elflord
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
 set cursorline
 
