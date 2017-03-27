@@ -49,6 +49,8 @@ Plug 'jmcantrell/vim-virtualenv'
 
 call plug#end()
 
+set path+=**
+
 "Navigate panes with Ctrl-J/K/L/H
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
