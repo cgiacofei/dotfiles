@@ -40,7 +40,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github pyenv z)
+plugins=(git github pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,9 +49,6 @@ source $ZSH/oh-my-zsh.sh
 # ------------------------------------------------------------------
 source $HOME/.aliases
 source $HOME/.functions
-
-# This file is not tracked in the repo and is used to store sensitive info
-source $HOME/.profile
 
 export PATH=$PATH:$HOME/bin
 export EDITOR=/usr/bin/vim
@@ -111,3 +108,8 @@ else
     touch $HOME/.script_update
 fi
 
+
+# This file is not tracked in the repo and is used to store sensitive info
+source $HOME/.profile
+
+if [[ \$TMUX ]]; then source ~/.tmux-git/tmux-git.sh; fi

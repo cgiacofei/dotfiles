@@ -37,10 +37,8 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
 "auto-completion stuff
-"Plug 'klen/python-mode'
 Plug 'Valloric/YouCompleteMe'
-Plug 'klen/rope-vim'
-"Plug 'davidhalter/jedi-vim'
+
 ""code folding
 Plug 'tmhedberg/SimpylFold'
 
@@ -53,7 +51,13 @@ Plug 'scrooloose/nerdtree'
 Plug  'ledger/vim-ledger'
 Plug 'jmcantrell/vim-virtualenv'
 
+Plug 'vimwiki/vimwiki'
+Plug 'blindFS/vim-taskwarrior'
+Plug 'tbabej/taskwiki'
+
 call plug#end()
+
+set path+=**
 
 "Navigate panes with Ctrl-J/K/L/H
 nnoremap <C-J> <C-W><C-J>
@@ -74,7 +78,7 @@ nmap <F8> :TagbarToggle<CR>
 "Color Scheme and Visability
 syntax enable
 set background=dark
-colorscheme desert
+colorscheme elflord
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
 set cursorline
 
@@ -106,14 +110,18 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
-"------------Start Python PEP 8 stuff----------------
-" Number of spaces that a pre-existing tab is equal to.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+"VimWiki Stuff
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_tags': 1}]
 
-"spaces for indents
-au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw set expandtab
-au BufRead,BufNewFile *.py set softtabstop=4
+"Python tab settings
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
