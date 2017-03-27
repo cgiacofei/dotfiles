@@ -12,6 +12,10 @@
 set nocompatible
 filetype plugin on 
 
+"Useful file completion stuff
+set path+=**
+set wildmenu
+
 call plug#begin('~/.vim/plugged')
 
 "git interface
