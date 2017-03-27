@@ -47,6 +47,10 @@ Plug 'scrooloose/nerdtree'
 Plug  'ledger/vim-ledger'
 Plug 'jmcantrell/vim-virtualenv'
 
+Plug 'vimwiki/vimwiki'
+Plug 'blindFS/vim-taskwarrior'
+Plug 'tbabej/taskwiki'
+
 call plug#end()
 
 set path+=**
@@ -101,6 +105,9 @@ set number
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
+
+"VimWiki Stuff
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_tags': 1}]
 
 "Python tab settings
 au BufNewFile,BufRead *.py
