@@ -1,10 +1,9 @@
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-CANDIDATES := $(wildcard .??*) .ssh/config
-EXCLUSIONS := .git .gitignore .gitmodules .ssh
+CANDIDATES := $(wildcard .??*)
+EXCLUSIONS := .git .gitignore .gitmodules
 DOTFILES := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
-
-FILES := $(shell find $(DOTFILES) -name '*.$(EXT)')
-SYMLINKS := $(addprefix $(HOME)/.,$(basename $(notdir $(FILES))))
+SCRIPTS := scripts/ghi/ghi
+BINFILES := $(addprefix bin/,$(notdir $(SCRIPTS)))
 
 .DEFAULT_GOAL := help
 
@@ -12,6 +11,8 @@ deploy: ## Create symlink to home directory
 	@echo '==> Start to deploy dotfiles to home directory.'
 	@echo ''
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+	@mkdir -p $(HOME)/bin
+	@$(foreach val, $(SCRIPTS), ln -sfnv $(abspath $(val)) $(HOME)/bin/$(notdir $(val));)
 
 update: ## Fetch changes for this repo
 	git pull origin master
@@ -29,6 +30,7 @@ clean: ## Remove the dot files and this repo
 
 list: ## Show dot files in this repo
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
+	@$(foreach val, $(SCRIPTS), /bin/ls -dF $(val);)
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
