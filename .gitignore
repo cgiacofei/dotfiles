@@ -25,3 +25,5 @@ tags.temp
 vim/plugged/*
 vim/view/*.md=
 vim/view/*.wiki=
+
+oh-my-zsh/*
