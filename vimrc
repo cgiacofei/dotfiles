@@ -53,7 +53,7 @@ Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'vimwiki/vimwiki'
 Plug 'blindFS/vim-taskwarrior'
-Plug 'tbabej/taskwiki'
+Plug 'teranex/vimwiki-tasks'
 
 call plug#end()
 
@@ -109,7 +109,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
 "VimWiki Stuff
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_tags': 1}]
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_tags': 1, 'syntax': 'markdown', 'ext': '.md'}]
 
 "Python tab settings
 au BufNewFile,BufRead *.py

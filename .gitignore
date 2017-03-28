@@ -23,3 +23,5 @@ tags.temp
 
 # Ignore vim plugins
 vim/plugged/*
+vim/view/*.md=
+vim/view/*.wiki=
