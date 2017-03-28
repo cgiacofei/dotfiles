@@ -22,10 +22,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 
 "html
-Plug 'isnowfy/python-vim-instant-markdown'
-Plug 'jtratner/vim-flavored-markdown'
-Plug 'suan/vim-instant-markdown'
-Plug 'nelstrom/vim-markdown-preview'
+"Plug 'isnowfy/python-vim-instant-markdown'
+"Plug 'jtratner/vim-flavored-markdown'
+"Plug 'suan/vim-instant-markdown'
+"Plug 'nelstrom/vim-markdown-preview'
+
 "python sytax checker
 Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/Pydiction'
@@ -37,13 +38,10 @@ Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
 "auto-completion stuff
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
 ""code folding
 Plug 'tmhedberg/SimpylFold'
-
-"Colors!!!
-Plug 'altercation/vim-colors-solarized'
 
 " Latex
 Plug 'LaTeX-Box-Team/LaTeX-Box'
@@ -53,7 +51,6 @@ Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'vimwiki/vimwiki'
 Plug 'blindFS/vim-taskwarrior'
-Plug 'teranex/vimwiki-tasks'
 
 call plug#end()
 
@@ -68,6 +65,8 @@ nnoremap <Up> <NOP>
 nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
+
+imap <Tab> <C-P>
 
 set tags=./tags,tags;
 let g:autotagTagsFile="tags"
@@ -109,7 +108,16 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 
 "VimWiki Stuff
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'auto_tags': 1, 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                     \ 'auto_tags': 1,
+                     \ 'syntax': 'markdown',
+                     \ 'ext': '.md',
+                     \ 'auto_toc': 1}]
+
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_hl_cb_checked = 2
+let g:vimwiki_folding = 'syntax'
+
 
 "Python tab settings
 au BufNewFile,BufRead *.py
