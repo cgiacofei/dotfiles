@@ -11,6 +11,7 @@
 
 set nocompatible
 filetype plugin on 
+set omnifunc=syntaxcomplete#Complete
 
 "Useful file completion stuff
 set path+=**
