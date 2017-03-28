@@ -67,7 +67,7 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
-imap <Tab> <C-P>
+imap <Tab> <C-X><C-O>
 
 set tags=./tags,tags;
 let g:autotagTagsFile="tags"
