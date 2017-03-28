@@ -2,19 +2,22 @@ ssh/known_hosts*
 *_rsa
 bitbucket
 *~
-ssh/environment
 
 # netrw history
 .netrwhist
-ssh/*pub
-ssh/*rsa
-config/flexget
-config/calibre
-config/rtorrent
-config/rutorrent
-config/syncthing
-config/transmission-daemon
-ssh/authorized_keys
+
+.ssh/*pub
+.ssh/*rsa
+.ssh/authorized_keys
+.ssh/environment
+
+.config/flexget
+.config/calibre
+.config/rtorrent
+.config/rutorrent
+.config/syncthing
+.config/transmission-daemon
+
 
 # Ignore tag files
 tags
@@ -22,8 +25,6 @@ tags.lock
 tags.temp
 
 # Ignore vim plugins
-vim/plugged/*
-vim/view/*.md=
-vim/view/*.wiki=
-
-oh-my-zsh/*
+.vim/plugged/*
+.vim/view/*.md=
+.vim/view/*.wiki=

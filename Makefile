@@ -1,6 +1,6 @@
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-CANDIDATES := $(wildcard .??*) oh-my-zsh ssh/config vim dist-setup
-EXCLUSIONS := .git .gitignore .gitmodules
+CANDIDATES := $(wildcard .??*) .ssh/config
+EXCLUSIONS := .git .gitignore .gitmodules .ssh
 DOTFILES := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 
 FILES := $(shell find $(DOTFILES) -name '*.$(EXT)')
@@ -19,7 +19,7 @@ update: ## Fetch changes for this repo
 	git submodule update
 	git submodule foreach git pull origin master
 
-install: update deploy init ## Run make update, deploy, init
+install: update deploy ## Run make update, deploy, init
 	@exec $$SHELL
 
 clean: ## Remove the dot files and this repo
