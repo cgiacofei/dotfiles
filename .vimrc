@@ -11,7 +11,9 @@
 
 set nocompatible
 filetype plugin on 
+filetype plugin indent on    " enables filetype detection
 set omnifunc=syntaxcomplete#Complete
+syntax enable
 
 "Useful file completion stuff
 set path+=**
@@ -22,11 +24,7 @@ call plug#begin('~/.vim/plugged')
 "git interface
 Plug 'tpope/vim-fugitive'
 
-"html
-"Plug 'isnowfy/python-vim-instant-markdown'
-"Plug 'jtratner/vim-flavored-markdown'
-"Plug 'suan/vim-instant-markdown'
-"Plug 'nelstrom/vim-markdown-preview'
+Plug 'jtratner/vim-flavored-markdown'
 
 "python sytax checker
 Plug 'nvie/vim-flake8'
@@ -37,9 +35,6 @@ Plug 'scrooloose/syntastic'
 "tag stuff
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
-
-"auto-completion stuff
-"Plug 'Valloric/YouCompleteMe'
 
 ""code folding
 Plug 'tmhedberg/SimpylFold'
@@ -74,13 +69,14 @@ let g:autotagTagsFile="tags"
 nmap <F8> :TagbarToggle<CR> 
 
 "Color Scheme and Visability
-syntax enable
 set background=dark
 colorscheme elflord
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
-set cursorline
 
-filetype plugin indent on    " enables filetype detection
+set cursorline
+nnoremap <Leader>c :set cursorline!<CR>
+hi CursorLine   cterm=NONE ctermbg=darkgrey ctermfg=white
+
 let g:SimpylFold_docstring_preview = 1
 
 "autocomplete
@@ -119,17 +115,6 @@ let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_folding = 'syntax'
 
-
-"Python tab settings
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
 
@@ -139,14 +124,13 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Use UNIX (\n) line endings.
-au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
+au BufNewFile *.c,*.h set fileformat=unix
 
 " Set the default file encoding to UTF-8:
 set encoding=utf-8
 
 " For full syntax highlighting:
 let python_highlight_all=1
-syntax on
 
 " Keep indentation level from previous line:
 autocmd FileType python set autoindent
