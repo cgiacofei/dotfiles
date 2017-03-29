@@ -19,6 +19,11 @@ syntax enable
 set path+=**
 set wildmenu
 
+" Don't offer to open certain files/directories
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.pyc,__pycache__
+
 call plug#begin('~/.vim/plugged')
 
 "git interface
@@ -162,7 +167,3 @@ set incsearch		" do incremental searching
 if has('mouse')
   set mouse=a
 endif
-
-" Change directory to the current buffer when opening files.
-set autochdir
-
