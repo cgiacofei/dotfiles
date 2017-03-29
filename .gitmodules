@@ -4,3 +4,6 @@
 [submodule "scripts/ghi"]
 	path = scripts/ghi
 	url = https://github.com/stephencelis/ghi.git
+[submodule "scripts/gitwatch"]
+	path = scripts/gitwatch
+	url = https://github.com/AndrewS-Vbosch/gitwatch.git
