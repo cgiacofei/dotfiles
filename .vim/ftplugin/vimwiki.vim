@@ -1,3 +1,3 @@
-autocmd BufRead * :VimwikiTOC
+autocmd BufRead *\(diary/*\)\@<! :VimwikiTOC
 autocmd BufWritePost * :VimwikiRebuildTags
-autocmd BufWritePost * :VimwikiGenerateTags
+autocmd BufWritePost index.md :VimwikiGenerateTags
