@@ -67,6 +67,9 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
+command! -bar Pdt put='## ' . strftime('%Y-%m-%d %H:%M:%S') 
+nmap <leader>w<leader>d <leader>w<leader>wGo<esc>:Pdt<CR>o
+
 imap <Tab> <C-X><C-O>
 
 set tags=./tags,tags;
@@ -167,3 +170,4 @@ set incsearch		" do incremental searching
 if has('mouse')
   set mouse=a
 endif
+
