@@ -1,9 +1,12 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+	ignore = dirty
 [submodule "scripts/ghi"]
 	path = scripts/ghi
 	url = https://github.com/stephencelis/ghi.git
+	ignore = dirty
 [submodule "scripts/gitwatch"]
 	path = scripts/gitwatch
 	url = https://github.com/AndrewS-Vbosch/gitwatch.git
+	ignore = dirty
