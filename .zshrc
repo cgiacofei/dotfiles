@@ -108,6 +108,12 @@ else
     touch $HOME/.script_update
 fi
 
+# Emulate bash PROMPT_COMMAND
+direnv_hook () {
+    eval "$PROMPT_COMMAND"
+}
+[[ -z $precmd_functions ]] && precmd_functions=()
+precmd_functions=($precmd_functions direnv_hook)
 
 # This file is not tracked in the repo and is used to store sensitive info
 source $HOME/.profile
