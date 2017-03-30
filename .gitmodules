@@ -10,3 +10,7 @@
 	path = scripts/gitwatch
 	url = https://github.com/AndrewS-Vbosch/gitwatch.git
 	ignore = dirty
+[submodule ".tmux-gitbar"]
+	path = .tmux-gitbar
+	url = https://github.com/aurelien-rainone/tmux-gitbar.git
+	ignore = dirty

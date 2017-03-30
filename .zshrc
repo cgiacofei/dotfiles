@@ -112,4 +112,3 @@ fi
 # This file is not tracked in the repo and is used to store sensitive info
 source $HOME/.profile
 
-if [[ \$TMUX ]]; then source ~/.tmux-git/tmux-git.sh; fi
