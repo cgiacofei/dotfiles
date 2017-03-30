@@ -81,18 +81,6 @@ else
     start_agent;
 fi
 
-# ------------------------------------------------------------------
-# Set git config settings
-# ------------------------------------------------------------------
-git config --global ghi.token $GH_TOKEN
-git config --global ghi.editor vim
-git config --global user.name $GH_NAME
-git config --global user.email $GH_EMAIL
-git config --global alias.co checkout
-git config --global alias.ci 'commit -a'
-git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
-git config --global commit.verbose true
-
 alias script_update='sh $HOME/.scripts/tools/install.sh'
 if [[ -f $HOME/.script_update ]] ; then
     MOD=$(date -r $HOME/.script_update +%s)
@@ -118,3 +106,14 @@ precmd_functions=($precmd_functions direnv_hook)
 # This file is not tracked in the repo and is used to store sensitive info
 source $HOME/.profile
 
+# ------------------------------------------------------------------
+# Set git config settings
+# ------------------------------------------------------------------
+git config --global ghi.token $GH_TOKEN
+git config --global ghi.editor vim
+git config --global user.name $GH_NAME
+git config --global user.email $GH_EMAIL
+git config --global alias.co checkout
+git config --global alias.ci 'commit -a'
+git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
+git config --global commit.verbose true
