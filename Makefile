@@ -2,7 +2,7 @@ DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 CANDIDATES := $(wildcard .??*)
 EXCLUSIONS := .git .gitignore .gitmodules
 DOTFILES := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
-SCRIPTS := scripts/ghi/ghi scripts/gitwatch/gitwatch.sh
+SCRIPTS := $(wildcard bin/??*) scripts/ghi/ghi scripts/gitwatch/gitwatch.sh
 BINFILES := $(addprefix bin/,$(notdir $(SCRIPTS)))
 
 .DEFAULT_GOAL := help
