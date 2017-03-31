@@ -17,8 +17,7 @@ deploy: ## Create symlink to home directory
 update: ## Fetch changes for this repo
 	git pull origin master
 	git submodule init
-	git submodule update
-	git submodule foreach git pull origin master
+	git submodule update --recursive
 
 install: update deploy ## Run make update, deploy, init
 
