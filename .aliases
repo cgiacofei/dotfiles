@@ -24,7 +24,8 @@ alias gs='git status'
 
 # todo.txt
 alias t='task'
-alias ta='t add'
+alias ta='task add'
+alias tsync='task sync'
 #alias tn='pri A'
 #alias tw='t view project @waiting && echo "=====  Stalled   =====" && t view project @next @waiting'
 #alias tah='t lsp A | grep "+home"'

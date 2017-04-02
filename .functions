@@ -47,3 +47,14 @@ function py_env() {
     fi
 }
 
+function tm() {
+    NUM=$1
+    shift
+    task $NUM mod "$@"
+}
+
+fucion tann() {
+    NUM=$1
+    shift
+    task $NUM annotate "$@"
+}
