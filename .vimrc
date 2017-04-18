@@ -47,7 +47,7 @@ Plug 'tmhedberg/SimpylFold'
 " Latex
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'scrooloose/nerdtree'
-Plug  'ledger/vim-ledger'
+Plug  'cgiacofei/vim-ledger'
 Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'vimwiki/vimwiki'
@@ -97,6 +97,7 @@ let g:ledger_maxwidth = 80
 let g:ledger_align_at = 78
 let g:ledger_fillstring = '    -'
 let g:ledger_detailed_first = 1
+let g:ledger_date_format = '%Y-%m-%d'
 
 "I don't like swap files
 set backupdir=~/.vim/backup//
