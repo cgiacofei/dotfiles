@@ -9,22 +9,9 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-set nocompatible
-filetype plugin on 
-filetype plugin indent on    " enables filetype detection
-set omnifunc=syntaxcomplete#Complete
-syntax enable
-
-"Useful file completion stuff
-set path+=**
-set wildmenu
-
-" Don't offer to open certain files/directories
-set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
-set wildignore+=*.pdf,*.psd
-set wildignore+=*.pyc,__pycache__
 
 call plug#begin('~/.vim/plugged')
+Plug 'SirVer/ultisnips'
 
 "git interface
 Plug 'tpope/vim-fugitive'
@@ -55,6 +42,26 @@ Plug 'blindFS/vim-taskwarrior'
 
 call plug#end()
 
+augroup markdown
+	au!
+	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
+
+set nocompatible
+filetype plugin on 
+filetype plugin indent on    " enables filetype detection
+set omnifunc=syntaxcomplete#Complete
+syntax enable
+
+"Useful file completion stuff
+set path+=**
+set wildmenu
+
+" Don't offer to open certain files/directories
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+set wildignore+=*.pyc,__pycache__
+
 "Navigate panes with Ctrl-J/K/L/H
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -75,6 +82,11 @@ imap <Tab> <C-X><C-O>
 set tags=./tags,tags;
 let g:autotagTagsFile="tags"
 nmap <F8> :TagbarToggle<CR> 
+
+"" Ultisnips
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsListSnippets="<c-s-tab>"
 
 "Color Scheme and Visability
 set background=dark
@@ -98,6 +110,10 @@ let g:ledger_align_at = 78
 let g:ledger_fillstring = '    -'
 let g:ledger_detailed_first = 1
 let g:ledger_date_format = '%Y-%m-%d'
+au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
+au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
+let g:ledger_extra_options = '--pedantic --explicit --check-payees'
+noremap <silent><buffer> <leader>t :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
 
 "I don't like swap files
 set backupdir=~/.vim/backup//
