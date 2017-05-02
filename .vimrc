@@ -112,8 +112,8 @@ let g:ledger_detailed_first = 1
 let g:ledger_date_format = '%Y-%m-%d'
 au FileType ledger inoremap <silent> <Tab> <C-r>=ledger#autocomplete_and_align()<CR>
 au FileType ledger vnoremap <silent> <Tab> :LedgerAlign<CR>
-let g:ledger_extra_options = '--pedantic --explicit --check-payees'
-noremap <silent><buffer> <leader>t :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
+"let g:ledger_extra_options = '--pedantic --explicit --check-payees'
+nnoremap <silent> <leader>t :call ledger#transaction_state_toggle(line('.'), ' *')<CR>
 
 "I don't like swap files
 set backupdir=~/.vim/backup//
