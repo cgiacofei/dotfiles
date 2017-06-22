@@ -40,6 +40,7 @@ Plug 'jmcantrell/vim-virtualenv'
 Plug 'vimwiki/vimwiki'
 Plug 'blindFS/vim-taskwarrior'
 
+Plug 'ajmwagar/vim-dues'
 call plug#end()
 
 augroup markdown
@@ -90,7 +91,7 @@ let g:UltiSnipsListSnippets="<c-s-tab>"
 
 "Color Scheme and Visability
 set background=dark
-colorscheme elflord
+colorscheme dues
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
 
 set cursorline
