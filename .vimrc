@@ -75,7 +75,7 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
-command! -bar Pdt put='## ' . strftime('%H:%M:%S')
+command! -bar Pdt put='# ' . strftime('%H:%M:%S')
 nmap <leader>w<leader>d <leader>w<leader>wGo<esc>:Pdt<CR>o
 
 imap <Tab> <C-X><C-O>
