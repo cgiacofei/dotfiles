@@ -43,6 +43,12 @@ Plug 'blindFS/vim-taskwarrior'
 Plug 'ajmwagar/vim-dues'
 call plug#end()
 
+augroup myvimrc
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
+
 augroup markdown
 	au!
 	au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
