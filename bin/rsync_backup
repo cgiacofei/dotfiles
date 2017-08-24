@@ -107,7 +107,7 @@ mkdir -p "$BKP_DIR"/$INC.$DT
 rsync -av --delete $SRC_DIR/ "$BKP_DIR"/$INC.$DT
 
 # Keep the most recent MAX backups and delete the rest
-if [ $(($NUM+1)) -gt $MAX ]; then
+if [ $(($NUM+1)) -gt $MAX ] && [ $MAX -gt 0 ]; then
     echo "Cleanup old backups..."
     for i in `seq 0 $[$NUM-$MAX]`; do
         echo "removing backup:" ${FOLDERS[$i]}
