@@ -38,7 +38,6 @@ Plug  'cgiacofei/vim-ledger'
 Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'vimwiki/vimwiki'
-Plug 'blindFS/vim-taskwarrior'
 
 Plug 'ajmwagar/vim-dues'
 call plug#end()
