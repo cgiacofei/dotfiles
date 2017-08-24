@@ -96,7 +96,7 @@ let g:UltiSnipsListSnippets="<c-s-tab>"
 
 "Color Scheme and Visability
 set background=dark
-colorscheme dues
+colorscheme deus
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
 
 set cursorline
