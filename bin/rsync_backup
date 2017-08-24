@@ -24,6 +24,9 @@ eval set -- "$OPTS"
 
 # Interval options (H,D,W,M,Q,Y) are mutually exclusive.
 # Specifying more than one will kill the script.
+# Note: The pattern `${VAR+x}` is used to check weather
+# a variable is set. The expansion `+x` insures it works 
+# even if the the variable is set to an empty string.
 while true; do
     case "$1" in
         -H|--hourly)
