@@ -6,6 +6,7 @@ if pgrep -fl $1 | grep -v "app_check" > /dev/null; then
 else
     mkdir -p $HOME/logs
     echo "`date +"%Y-%m-%d %H:%M:%S"` ${1} not running, restarting." >> $HOME/logs/$1.log
-    $1 
+    echo "Running: $@"
+    $@ 
 fi
 

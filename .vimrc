@@ -38,9 +38,15 @@ Plug  'cgiacofei/vim-ledger'
 Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'vimwiki/vimwiki'
-Plug 'blindFS/vim-taskwarrior'
 
+Plug 'ajmwagar/vim-dues'
 call plug#end()
+
+augroup myvimrc
+    autocmd!
+    autocmd QuickFixCmdPost [^l]* cwindow
+    autocmd QuickFixCmdPost l*    lwindow
+augroup END
 
 augroup markdown
 	au!
@@ -74,7 +80,7 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
-command! -bar Pdt put='## ' . strftime('%Y-%m-%d %H:%M:%S') 
+command! -bar Pdt put='# ' . strftime('%H:%M:%S')
 nmap <leader>w<leader>d <leader>w<leader>wGo<esc>:Pdt<CR>o
 
 imap <Tab> <C-X><C-O>
@@ -90,7 +96,7 @@ let g:UltiSnipsListSnippets="<c-s-tab>"
 
 "Color Scheme and Visability
 set background=dark
-colorscheme elflord
+colorscheme deus
 set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
 
 set cursorline
