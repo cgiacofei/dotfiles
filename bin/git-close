@@ -8,7 +8,6 @@ git rebase -i master
 git checkout master
 git merge --no-ff $FEATURE
 git push origin master
+# Delete feature branch
 git branch -d $FEATURE
-
-# Delete feature branch from remote
-git push origin :$FEATURE
+git push -d origin $FEATURE
