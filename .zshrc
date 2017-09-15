@@ -46,7 +46,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 source $HOME/.functions
 
-export PATH=$PATH:$HOME/bin
+export PATH=$HOME/bin:$PATH
 export EDITOR=/usr/bin/vim
 export PYTHONDONTWRITEBYTECODE=True
 export TZ=/usr/share/zoneinfo/America/New_York
@@ -62,14 +62,11 @@ function start_agent {
     echo succeeded
     chmod 600 "${SSH_ENV}"
     . "${SSH_ENV}" > /dev/null
-    /usr/bin/ssh-add;
 }
-
 # Source SSH settings, if applicable
 
 if [ -f "${SSH_ENV}" ]; then
     . "${SSH_ENV}" > /dev/null
-    #ps ${SSH_AGENT_PID} doesn't work under cywgin
     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
         start_agent;
     }
@@ -102,24 +99,28 @@ precmd_functions=($precmd_functions direnv_hook)
 # This file is not tracked in the repo and is used to store sensitive info
 source $HOME/.profile
 
+# Add ssh keys
+for key in $SSH_KEYS; do
+    echo "\"Adding $HOME/.ssh/$key\""
+    [[ -z "$(ssh-add -l | grep $key)" ]] && ssh-add $HOME/.ssh/$key
+done
+
 # ------------------------------------------------------------------
 # Set git config settings
 # ------------------------------------------------------------------
-git config --global ghi.token $GH_TOKEN
 git config --global ghi.editor vim
-git config --global user.name $GH_NAME
-git config --global user.email $GH_EMAIL
+[[ ! -z "$GH_TOKEN" ]] && git config --global ghi.token $GH_TOKEN
+[[ ! -z "$GH_NAME" ]] && git config --global user.name $GH_NAME
+[[ ! -z "$GH_EMAIL" ]] && git config --global user.email $GH_EMAIL
 git config --global alias.co checkout
 git config --global alias.ci 'commit -a'
 git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 git config --global commit.verbose true
 
 # Load tmux
-if [[ -z "$TMUX" ]]
-then
+if [[ -z "$TMUX" ]]; then
     ID="`tmux ls | grep -vm1 attached | cut -d: -f1`"
-    if [[ -z "$ID" ]]
-    then
+    if [[ -z "$ID" ]]; then
         tmux new-session
     else
         tmux attach-session -t "$ID"
