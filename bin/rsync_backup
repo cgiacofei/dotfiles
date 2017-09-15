@@ -85,32 +85,42 @@ if [[ -z ${SRC_DIR+x} ]] || [[ -z ${BKP_DIR+x} ]]; then
     echo "Source and destination directories must be specified."
     echo "SRC directory: $SRC_DIR"
     echo "DST directory: $BKP_DIR"
-    exit
+    exit 1
 fi
+
+function get_newest() {
+    echo $(find $1 -mindepth 1 -printf '%T+=%p\n' | sort |tail -n 1 | cut -d= -f2-)
+}
 
 #------------------------------------------------------------------------------
 # Backup Script
+#------------------------------------------------------------------------------
 mkdir -p "$BKP_DIR"
 
 # Get list of current backup folders and count them
+REGEX='^.*\.(day|week|month|year|hour)'
+ALL_FOLDERS=($(find "$BKP_DIR" -type d -regextype posix-extended -regex "$REGEX" | sort -r))
+LATEST=${ALL_FOLDERS[0]}
+
 FOLDERS=($(find "$BKP_DIR" -type d -name "*.$INC" | sort ))
 NUM=${#FOLDERS[@]}
 echo "There are currently" $NUM "backups"
 
 # Copy (using hardlinks) the latest backup into current backup
 if [ $NUM -gt 0 ]; then
-    if [[ ${FOLDERS[$[$NUM-1]]} != "$BKP_DIR"/$DT.$INC ]]; then
-        echo "Hard linking ${FOLDERS[$[$NUM-1]]} to $BKP_DIR/$DT.$INC"
-        cp -al ${FOLDERS[$[$NUM-1]]} "$BKP_DIR"/$DT.$INC
+    if [[ ${FOLDERS[$[$NUM-1]]} != "$BKP_DIR/$DT.$INC" ]]; then
+        echo "Hard linking $LATEST to $BKP_DIR/$DT.$INC"
+        cp -al $LATEST "$BKP_DIR/$DT.$INC"
     fi
 fi
 
-mkdir -p "$BKP_DIR"/$DT.$INC
+mkdir -p "$BKP_DIR/$DT.$INC"
 
 # rsync into todays backup
 echo "Syncing $SRC_DIR/ to $BKP_DIR/$DT.$INC"
 
-rsync -av --delete $SRC_DIR/ "$BKP_DIR"/$DT.$INC
+rsync -av --delete $SRC_DIR/ "$BKP_DIR/$DT.$INC"
+touch -r $(get_newest "$BKP_DIR/$DT.$INC") "$BKP_DIR/$DT.$INC"
 
 # Keep the most recent MAX backups and delete the rest
 if [ $(($NUM+1)) -gt $MAX ] && [ $MAX -gt 0 ]; then
