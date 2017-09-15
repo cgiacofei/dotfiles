@@ -1,0 +1,6 @@
+#! /bin/bash
+
+FEATURE="$1"
+BASE=${2:-"master"}
+
+git checkout -b $FEATURE $BASE

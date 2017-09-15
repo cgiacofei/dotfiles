@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# Close a completed feature branch
+FEATURE="$1"
+
+git checkout $FEATURE
+git rebase -i master
+git checkout master
+git merge --no-ff $FEATURE
+git push origin master
+git branch -d $FEATURE
+
+# Delete feature branch from remote
+git push origin :$FEATURE
