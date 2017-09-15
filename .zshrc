@@ -116,6 +116,7 @@ git config --global alias.co checkout
 git config --global alias.ci 'commit -a'
 git config --global alias.pretty-log 'log --graph --pretty=format:"%Cred%h%Creset%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset"'
 git config --global commit.verbose true
+git config --global branch.autosetuprebase always #Always rebase when pulling (no merge commits)
 
 # Load tmux
 if [[ -z "$TMUX" ]]; then
