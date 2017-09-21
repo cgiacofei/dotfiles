@@ -80,9 +80,6 @@ nnoremap <Down> <NOP>
 nnoremap <Left> <NOP>
 nnoremap <Right> <NOP>
 
-command! -bar Pdt put='# ' . strftime('%H:%M:%S')
-nmap <leader>w<leader>d <leader>w<leader>wGo<esc>:Pdt<CR>o
-
 imap <Tab> <C-X><C-O>
 
 set tags=./tags,tags;
@@ -145,6 +142,10 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_hl_cb_checked = 2
 let g:vimwiki_folding = 'syntax'
+
+command! -bar Pdt put='## ' . strftime('%H:%M:%S')
+command! -bar DJ put='# Dream Journal ' . strftime('%Y-%m-%d')
+nmap <leader>w<leader>d <leader>w<leader>wGo<esc>:Pdt<CR>o
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
