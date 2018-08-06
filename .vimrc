@@ -34,7 +34,9 @@ Plug 'tmhedberg/SimpylFold'
 " Latex
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'scrooloose/nerdtree'
-Plug  'cgiacofei/vim-ledger'
+Plug 'cgiacofei/vim-ledger'
+Plug 'nathangrigg/vim-beancount'
+Plug 'nathangrigg/vim-beancount'
 Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'vimwiki/vimwiki'
